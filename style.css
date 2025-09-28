@@ -1,0 +1,432 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: "Roboto", sans-serif;
+}
+nav {
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  width: 100vw;
+  box-shadow: 0 3px 6px #00000029;
+}
+nav a img {
+  text-decoration: none;
+  width: 100px;
+  margin-left: 10px;
+}
+.accessibility {
+  margin-right: 40px;
+  display: flex;
+}
+.accessibility a {
+  text-decoration: none;
+  color: #333333;
+  font-size: 15px;
+  margin: 0 10px 0 20px;
+  display: flex;
+}
+.accessibility a img {
+  width: 16px;
+  margin-right: 15px;
+}
+
+/*Style main*/
+main {
+  display: flex;
+  width: 100vw;
+}
+.left {
+  display: flex;
+  justify-content: end;
+  width: 60vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.left img {
+  height: 500px;
+  width: 690px;
+  margin-right: 35px;
+}
+.right {
+  width: 41vw;
+  height: 100%;
+}
+
+/*Style card*/
+.card {
+  margin: 3px;
+  margin-bottom: 15px;
+  padding: 20px;
+  width: 380px;
+  box-shadow: 0px 0px 2px gray;
+}
+.card h3 {
+  font-size: 19px;
+}
+.card h4 {
+  display: flex;
+  margin: 43px 0 0 0;
+  font-size: 1em;
+  font-weight: 100;
+}
+.card h4 img {
+  margin-right: 15px;
+}
+.card p {
+  font-weight: lighter;
+  font-size: 13px;
+  margin: 18px 0;
+}
+.card input {
+  margin-top: 5px;
+  width: 100%;
+  padding: 10px 20px;
+  border: 1px solid;
+  border-radius: 3px;
+}
+.card input::placeholder {
+  font-style: italic;
+}
+.panel-button {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin: 35px 0 25px;
+}
+
+.panel-button button {
+  background: #1351b4;
+  padding: 1px 6px;
+  width: 145px;
+  height: 40px;
+  color: white;
+  font-size: 16px;
+  border: none;
+  box-shadow: 0 2px 3px #00000029;
+  border-radius: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.card h5 {
+  margin: 0 0 5px;
+  font-size: 17px;
+  font-weight: 100;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+}
+.text a {
+  font-size: 1em;
+  color: black;
+  text-decoration: none;
+  margin: 25px 0 0 0;
+  display: flex;
+  align-items: center;
+}
+.text a img {
+  margin-right: 15px;
+}
+.login-bank {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #008c32;
+}
+.login-bank span {
+  background: #008c32;
+  color: white;
+  font-size: 7px;
+  width: 85px;
+  height: 15px;
+  overflow: hidden;
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.duvida {
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  margin: 80px 0 0 0;
+  text-align: center;
+  overflow: hidden;
+}
+.duvida a {
+  color: #1351b4;
+  text-decoration: none;
+}
+.duvida img {
+  width: 20px;
+  margin-right: 15px;
+}
+.termo {
+  padding-top: 25px;
+}
+
+/* Adicionando estilo para mensagem de erro */
+.error-message {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #d32f2f;
+  border-radius: 5px;
+  background-color: #ffebee;
+}
+
+/* Melhorando estilos da mensagem de segurança com design mais profissional */
+.security-alert {
+  margin: 25px 0;
+  padding: 20px;
+  border: 2px solid #d32f2f;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ffebee 0%, #fce4ec 100%);
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.15);
+  animation: slideIn 0.3s ease-out;
+}
+
+.security-alert .alert-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.security-alert .alert-content h4 {
+  color: #d32f2f;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.security-alert .alert-content p {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.security-info {
+  background: rgba(211, 47, 47, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.security-info small {
+  color: #666;
+  font-size: 12px;
+  display: block;
+  text-align: center;
+  font-style: italic;
+}
+
+.alert-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.download-button {
+  background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 3px 8px rgba(211, 47, 47, 0.3);
+  transition: all 0.3s ease;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.download-button:hover {
+  background: linear-gradient(135deg, #b71c1c 0%, #d32f2f 100%);
+  box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4);
+  transform: translateY(-2px);
+}
+
+.download-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(211, 47, 47, 0.3);
+}
+
+/* Adding styles for disabled login options */
+.disabled-option {
+  filter: grayscale(100%) !important;
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}
+
+.disabled-option img {
+  filter: grayscale(100%) !important;
+}
+
+.login-bank.disabled-option {
+  color: #666 !important;
+}
+
+.login-bank.disabled-option span {
+  background: #666 !important;
+  color: #ccc !important;
+}
+
+/* Adding security warning message styles */
+.security-warning {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.security-warning p {
+  color: #856404;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0;
+  font-style: italic;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .left {
+    display: none;
+  }
+  .right {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+  }
+  .card {
+    overflow: hidden;
+  }
+}
+@media screen and (max-width: 700px) {
+  .accessibility span {
+    display: none;
+  }
+  .accessibility a {
+    margin: 0 0 0 10px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .card {
+    width: 330px;
+  }
+  .card h3 {
+    font-size: 15px;
+  }
+  .card h4,
+  label {
+    font-size: 15px;
+  }
+  .card p {
+    font-size: 10px;
+  }
+  .card h5 {
+    font-size: 15px;
+  }
+  .panel-button button {
+    width: 130px;
+    height: 35px;
+    font-size: 15px;
+  }
+  .text a,
+  a {
+    font-size: 12px;
+  }
+  .card h4 img,
+  .text a img,
+  .duvida img {
+    width: 22px;
+  }
+  .security-alert {
+    margin: 20px -5px;
+    padding: 15px;
+  }
+
+  .security-alert .alert-content h4 {
+    font-size: 16px;
+  }
+
+  .security-alert .alert-content p {
+    font-size: 13px;
+  }
+
+  .download-button {
+    padding: 10px 20px;
+    font-size: 13px;
+    min-width: 160px;
+  }
+
+  /* Responsive adjustments for security warning */
+  .security-warning {
+    margin: 15px -5px;
+    padding: 12px;
+  }
+
+  .security-warning p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .card {
+    width: 300px;
+  }
+  .card h3 {
+    font-size: 15px;
+  }
+  .card h4,
+  label {
+    font-size: 15px;
+  }
+  .card p {
+    font-size: 10px;
+  }
+  .card h5 {
+    font-size: 15px;
+  }
+  .panel-button button {
+    width: 130px;
+    height: 35px;
+    font-size: 15px;
+  }
+  .text a,
+  a {
+    font-size: 12px;
+  }
+  .card h4 img,
+  .text a img,
+  .duvida img {
+    width: 22px;
+  }
+}
